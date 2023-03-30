@@ -2,8 +2,10 @@ import React from 'react';
 import "./product.css"
 
 const product = (props) => {
-    console.log(props.product)
+    // console.log(props.product)
     const { name, img, price, seller, ratings } = props.product
+    const addToCart = props.addToCart
+
     return (
         <div class="card">
             <div className='inner-content'>
@@ -15,12 +17,12 @@ const product = (props) => {
                     </div>
                     <hr />
                     <div className='manufacture-rating'>
-                    <p>Manufacture : {seller}</p>
-                    <p>Rating : {ratings}</p>
+                        <p>Manufacture : {seller}</p>
+                        <p>Rating : {ratings}</p>
                     </div>
                 </div>
             </div>
-            <button className='atc-btn'>Add to Cart</button>
+            <button onClick={() => addToCart(props.product)} className='atc-btn'>Add to Cart</button>
         </div>
     );
 };
